@@ -57,27 +57,32 @@ const SecondaryComponent = () => {
         </div>
       </div>
 
-      {/* Person Modal */}
-      {modalType === "person" && (
-        <Modal title="" onClose={closeModal}>
-          <div className="flex justify-between">
-            <div className="w-1/2 text-center">
-              <a href="/person" className="bg-black text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600">
-                Look for Disease
-              </a>
-              <p className="mt-2 text-gray-700">Find information about diseases.</p>
-            </div>
-            <div className="w-1/2 text-center">
-              <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
-                Look for Locality
-              </button>
-              <p className="mt-2 text-gray-700">Find outbreaks in a specific area.</p>
-            </div>
+      /* Person Modal */
+        {modalType === "person" && (
+          <Modal title="" onClose={closeModal}>
+            <div className="flex justify-between">
+          <div className="w-1/2 text-center">
+          <a
+            href="/pages/personDisease"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600 inline-block text-center"
+          >
+            Look for Disease
+          </a>
+            <p className="mt-2 text-gray-700">Find information about diseases.</p>
           </div>
-        </Modal>
-      )}
+          <div className="w-1/2 text-center">
+            <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
+              Look for Locality
+            </button>
+            <p className="mt-2 text-gray-700">Find outbreaks in a specific area.</p>
+          </div>
+            </div>
+          </Modal>
+        )}
 
-      {/* Government Modal */}
+        {/* Government Modal */}
       {modalType === "government" && (
         <Modal title="" onClose={closeModal}>
           <div className="flex justify-between">
