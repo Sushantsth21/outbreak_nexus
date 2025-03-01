@@ -1,3 +1,4 @@
+#Do not touch this file! This file defines functions for disease details of our database.
 import json
 import re
 
