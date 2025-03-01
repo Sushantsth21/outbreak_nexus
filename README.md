@@ -1,6 +1,6 @@
-# Welcome to OurBreak Nexus
+# Welcome to OutBreak Nexus
 
-Hey there! OurBreak Maps is your go-to platform for keeping tabs on disease outbreaks, wherever they’re happening. Think of it as a one-stop spot to see what’s been going around—whether it’s the past month or the whole last year—through easy-to-use, interactive maps. We’ve packed it with info on diseases, from what to watch out for to how to treat them, and it’s designed to help out both everyday folks like you and me, as well as government folks working to keep us all safe.
+Hey there! OutBreak Maps is your go-to platform for keeping tabs on disease outbreaks, wherever they’re happening. Think of it as a one-stop spot to see what’s been going around—whether it’s the past month or the whole last year—through easy-to-use, interactive maps. We’ve packed it with info on diseases, from what to watch out for to how to treat them, and it’s designed to help out both everyday folks like you and me, as well as government folks working to keep us all safe.
 
 ## What’s Inside?
 
