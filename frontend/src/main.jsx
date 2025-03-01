@@ -7,6 +7,5 @@ import MapboxExample from './maps/EgMap.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <MapboxExample/>
-  </StrictMode>
+  </StrictMode>,
 )
