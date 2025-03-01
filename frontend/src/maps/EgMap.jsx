@@ -45,7 +45,7 @@ const MapboxExample = () => {
         source: 'country-borders',
         paint: {
           'line-color': 'black',
-          'line-width': 2,
+          'line-width': 0.2,
         },
       });
     });
