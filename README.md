@@ -37,6 +37,6 @@ Hey there! OurBreak Maps is your go-to platform for keeping tabs on disease outb
 
 1. **Grab the Code:**
    ```bash
-   git clone https://github.com/yourusername/ourbreak-maps.git
+   git clone https://github.com/Sushantsth21/outbreak_nexus.git
    cd ourbreak-maps
    ```
