@@ -19,6 +19,9 @@ const MapboxExample = () => {
       projection: 'equirectangular',
     });
 
+    mapRef.current.dragRotate.disable();
+    mapRef.current.touchZoomRotate.disableRotation();
+
     mapRef.current.on('load', () => {
       mapRef.current.setFog({});
 

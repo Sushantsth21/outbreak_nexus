@@ -1,7 +1,7 @@
 import React from 'react'
 import FinalMap from '../maps/finalMap';
 
-const personDisease = () => {
+const PersonDisease = () => {
   return (
     <div>
         <FinalMap />
@@ -9,4 +9,4 @@ const personDisease = () => {
   )
 }
 
-export default personDisease
+export default PersonDisease
