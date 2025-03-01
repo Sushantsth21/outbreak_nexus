@@ -4,54 +4,54 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const images = [
   {
-    url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBx24bPSu-d0gVbahoKcP9MXP-wlvr-h1GTD2MHolDFryig0oBQjyuBMUT99h5HBTH4ME&usqp=CAU",
-    title: "Disease 1",
-    description: "Description of Disease 1"
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4C5kFRo9QytZv8VRQ1s736dCcNaXYe2OnMAlhW",
+    title: "Mpox (Monkeypox) Resurgence In 2024,",
+    description: "Mpox reemerged, affecting regions previously unexposed. The disease spread rapidly in crowded areas, leading to numerous cases and fatalities. Communities grappled with containment efforts amidst public concern." 
   },
   {
-    url: "https://www.cdc.gov/ebola/media/images/2024/04/Ebola_virus_purple.jpg",
-    title: "Ebola Virus",
-    description: "Ebola virus, a deadly infectious disease."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4Cx2g9ypSphvWlDsj6mJEzHn13OYM0yaFRxbqQ",
+    title: "Bird Flu (H5N1) Throughout 2024",
+    description: "H5N1 bird flu infected 66 individuals in the U.S., resulting in one death. The virus's high mortality rate in humans raised alarms about potential pandemics. Global health authorities intensified surveillance and response measures."
   },
   {
-    url: "https://www.nfid.org/wp-content/uploads/2023/03/Pneumococcal-v1-1.jpeg",
-    title: "Pneumococcal Disease",
-    description: "A type of pneumonia caused by the Streptococcus pneumoniae bacteria."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4CqLpw8ArOqWpE0dz4j5VCtgwRcMav8UQn1ZLu",
+    title: "Dengue Fever In 2024",
+    description: "Dengue fever cases soared globally, with over 12 million reported—the highest annual count on record. The surge overwhelmed healthcare systems, especially in endemic regions. Preventive measures became crucial to control mosquito populations."
   },
   {
-    url: "https://www.endocrine.org/-/media/endocrine/images/patient-engagement-webpage/condition-page-images/cardiovascular-disease/cardio_disease_t2d_pe_1796x943.jpg",
-    title: "Cardiovascular Disease",
-    description: "Cardiovascular disease related to Type 2 diabetes."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4C5Gj6hwhQytZv8VRQ1s736dCcNaXYe2OnMAlh",
+    title: "Tuberculosis (TB) Surge in Kansas",
+    description: "Kansas experienced a TB outbreak with 67 active cases, marking the largest in the U.S. since the 1950s. The rapid increase puzzled health officials, who struggled to identify the outbreak's source. Intensive efforts were initiated to control the spread. "
   },
   {
-    url: "https://www.ttuhsc.edu/medicine/images/internal/divisions/im_divisionpage_infectiousdisease.png",
-    title: "Infectious Disease",
-    description: "A variety of infectious diseases affecting the human body."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4CtPpzbI76gDf3rd05L1cl4zemHOUwsnvSWjuG",
+    title: "Valley Fever (Coccidioidomycosis)",
+    description: "Climate change in 2024 led to increased cases of Valley fever, a fungal infection from soil in arid regions. The disease's spread beyond traditional areas caught many off guard. Underdiagnosis remained a challenge due to symptom overlap with other respiratory infections."
   },
   {
-    url: "https://www.infectiousdiseaseadvisor.com/wp-content/uploads/sites/16/2024/01/Mpox_G_1402268655.jpg",
-    title: "Mpox",
-    description: "Mpox, formerly known as Monkeypox, an infectious viral disease."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4Cdm3Qy0Ww1Trj6mGb0YcRsFZfkxqINVEDWJpM",
+    title: "Marburg Virus Disease Marburg virus outbreaks in 2024",
+    description: "With rapid progression from symptom onset to death. The disease's hemorrhagic nature terrified affected communities. International support was crucial in managing the crisis."
   },
   {
-    url: "https://www.merck.com/wp-content/uploads/sites/124/2020/02/infection-disease.jpeg?resize=666,664",
-    title: "Infection Disease",
-    description: "A general representation of infectious diseases."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4CtLqrEV76gDf3rd05L1cl4zemHOUwsnvSWjuG",
+    title: "Ebola Virus Disease Ebola outbreaks in 2024",
+    description: "Ebola outbreaks in 2024 led to numerous cases and deaths, particularly in West Africa. Fear and stigma surrounded affected individuals and communities. Global health responses focused on containment and support for survivors."
   },
   {
-    url: "https://mspgh.unimelb.edu.au/__data/assets/image/0003/4377324/varieties/medium.jpg",
-    title: "Varieties of Disease",
-    description: "Different varieties of diseases that exist around the world."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4CjNANaK4dzPAZuSDFcQ7Bk04VCRTGWswga8NL",
+    title: "Norovirus Outbreaks In early 2025",
+    description: "Norovirus infections spiked, leading to widespread gastroenteritis. The highly contagious nature of the virus resulted in numerous outbreaks in communal settings. Preventive measures like hand hygiene were emphasized to curb transmission."
   },
   {
-    url: "https://lirp.cdn-website.com/8318eaf8/dms3rep/multi/opt/Untitled-1-960w.jpg",
-    title: "Untitled Disease Image",
-    description: "A general image representing disease-related visuals."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4C8JIkoYyb5tRgalKN6MzFYu124VDsm3ykTqfE",
+    title: "Unidentified Illness in the Democratic Republic of the Congo (DRC)",
+    description: "In early 2025, the DRC faced an outbreak of an unidentified illness, resulting in over 1,000 cases and 60 deaths. Rapid disease progression posed significant challenges for healthcare workers. Ongoing investigations aimed to identify the pathogen and control the outbreak."
   },
   {
-    url: "https://www.novartis.com/sites/novartis_com/files/styles/crop_freeform/public/2021-09/novartis-institute-for-tropical-diseases-lrg.jpg.webp?itok=kgwbdFIX",
-    title: "Tropical Diseases",
-    description: "Research on tropical diseases at Novartis Institute."
+    url: "https://1cfmo2xx3e.ufs.sh/f/78coIuOcAo4C0ueG062x9jXPmHibMuL4yYweCtZaScGQV2A3",
+    title: "Measles Outbreaks",
+    description: "Measles Outbreaks Declining vaccination rates in 2024 led to a surge in measles cases, with over 280 reported in the U.S. Unvaccinated children were particularly vulnerable, facing severe complications. Health officials emphasized the importance of immunization to prevent outbreaks."
   }
 ];
 
@@ -67,7 +67,7 @@ export default function ImageSlider() {
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full max-w-2xl mx-auto overflow-hidden rounded-lg shadow-lg min-h-[25vh]">
       <motion.img
         key={currentIndex}
         src={images[currentIndex].url}

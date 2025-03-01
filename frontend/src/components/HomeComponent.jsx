@@ -30,8 +30,7 @@ const HomeComponent = () => {
   </div>
 </header>
 
-      <main className="bg-gradient-to-b from-[#f2e8d5] to-[#f2e8d5] min-h-[40vh] rounded-lg shadow-2xl mt-12"> {/* Light cream background */}
-        <section className="min-h-[40vh] bg-white shadow-lg rounded-xl p-8 mb-10 transform hover:scale-105 transition-all duration-500 ease-in-out">
+        <section className="mt-7">
           <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">
             Disease Outbreaks Around the World
           </h2>
@@ -39,17 +38,19 @@ const HomeComponent = () => {
             Explore global disease outbreaks, both near and far.
           </p>
           
-          <div className="flex justify-center space-x-8 mt-6">
-            <button className="bg-gray-600 hover:bg-gray-700 text-white py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
+        </section>
+      <div className='ImageSlider'>
+        <ImageSlider />
+      </div>
+      <div className="flex justify-center space-x-8 mt-6">
+            <button className="bg-black hover:bg-yellow-500 text-white py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
               About Us
             </button>
             
-            <button className="bg-green-600 hover:bg-green-700 text-white py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
+            <button className="bg-black hover:bg-yellow-500 text-white py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
               Real Stories
             </button>
-          </div>
-        </section>
-      </main>
+        </div>
     
       <SecondaryComponent />
     </div>
