@@ -1,3 +1,4 @@
+#Do not touch this! This file is a gemini client!
 from google import genai
 import os
 from dotenv import load_dotenv
@@ -26,7 +27,8 @@ For the disease "{disease_name}", provide the following details as a JSON file. 
     "treatment": "",
     "prevention": "",
     "pathogen_name": "",
-    "pathogen_type": ""
+    "pathogen_type": "",
+    "gemini-reply": "true"
 }}
     '''
     
