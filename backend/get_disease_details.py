@@ -86,6 +86,9 @@ if __name__ == "__main__":
     #print("Disease Names:", disease_names)
 
     # Retrieve details using a substring query like "monkey"
+
+    #The code below is to create instance
+    '''
     query = "covid"
     disease = disease_data.get_disease_by_name(query)
     if disease:
@@ -101,3 +104,4 @@ if __name__ == "__main__":
         print("Pathogen Type:", disease.get("pathogen_type"))
     else:
         print(f"No disease found matching '{query}'")
+    '''
