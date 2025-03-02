@@ -26,7 +26,7 @@ const SecondaryComponent = () => {
   const closeModal = () => setModalType(null);
 
   return (
-    <div className=" mt-6" style={{ backgroundColor: "white" }}>
+    <div className=" p-4 text-center mt-6" style={{ backgroundColor: "white" }}>
       <header className="text-3xl text-center font-bold text-black-700 mb-6">
         Disease Outbreak Info
       </header>
@@ -34,7 +34,7 @@ const SecondaryComponent = () => {
         Welcome to Outbreak Nexus
       </h2>
 
-      <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
+      <p className="text-lg text-center text-gray-700 mb-6">
           Outbreak Maps is your go-to platform for monitoring disease outbreaks. Whether you're tracking them over the last month or the past year, you’ll find all the details you need right here. The interactive maps provide an intuitive way to understand disease spread and empower users, from individuals to government officials, with the right information to act swiftly and responsibly.
         </p>
 

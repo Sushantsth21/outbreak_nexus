@@ -77,7 +77,7 @@ export default function ImageSlider() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden rounded-lg shadow-lg min-h-[45vh]">
+    <div className="relative w-full overflow-hidden rounded-lg shadow-lg">
       <motion.img
         key={currentIndex}
         src={images[currentIndex].url}
