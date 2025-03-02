@@ -2,40 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-const MapboxExample = () => {
+const MapboxExample = ({ diseaseName }) => {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
-  const [inputDisease, setInputDisease] = useState("");
   const [fetchedDiseaseName, setFetchedDiseaseName] = useState("");
 
-  // Function to fetch the standardized disease name from the API
-  const fetchDiseaseName = async () => {
-    if (!inputDisease.trim()) return;
-
-    try {
-      const response = await fetch(
-        `http://localhost:8000/disease-name/${inputDisease}`
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch disease name");
-      }
-
-      const data = await response.json();
-      setFetchedDiseaseName(data.standardized_name);
-      return data.standardized_name; // Return the standardized name
-    } catch (error) {
-      console.error("Error fetching disease name:", error);
+  useEffect(() => {
+    if (diseaseName) {
+      setFetchedDiseaseName(diseaseName);
     }
-  };
-
-  const handleSearchClick = async () => {
-    const standardizedName = await fetchDiseaseName();
-    if (standardizedName) {
-      // Pass the standardized name to the map component
-      setFetchedDiseaseName(standardizedName);
-    }
-  };
+  }, [diseaseName]);
 
   // Initialize the Mapbox map after fetching the disease name
   useEffect(() => {
@@ -73,7 +49,7 @@ const MapboxExample = () => {
           "fill-color": [
             "interpolate",
             ["linear"],
-            ["get", `mpox_dB`], // Use API response
+            ["get", `${fetchedDiseaseName.toLowerCase()}_dB`], // Use fetched disease name
 
             // Decibel breakpoints followed by corresponding colors
             0,
@@ -123,20 +99,9 @@ const MapboxExample = () => {
     <div style={{ textAlign: "center" }}>
       <h2>Disease Map</h2>
 
-      {/* Input field to enter disease name */}
-      <div style={{ marginBottom: "10px" }}>
-        <input
-          type="text"
-          value={inputDisease}
-          onChange={(e) => setInputDisease(e.target.value)}
-          placeholder="Enter disease name"
-        />
-        <button onClick={handleSearchClick}>Fetch Disease</button>
-      </div>
-
       {fetchedDiseaseName && (
         <p>
-          Standardized Name: <strong>{fetchedDiseaseName}</strong>
+          Disease Name: <strong>{fetchedDiseaseName}</strong>
         </p>
       )}
 
