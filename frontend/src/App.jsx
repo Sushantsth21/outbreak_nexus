@@ -7,6 +7,7 @@ import PersonDisease from './pages/personDisease'; // Create these components
 import DiseaseDetails from './pages/DiseaseDetails'; // Create these components
 import AboutUs from './pages/AboutUs'; // Add AboutUs page here
 import Report from './pages/Report'; // Add Report page here
+import Locality from './pages/Locality';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route path="/disease-details" element={<DiseaseDetails />} />
         <Route path="/about-us" element={<AboutUs />} /> {/* Add the AboutUs route */}
         <Route path="/report" element={<Report />}/>
-     
+        <Route path="/locality" element={<Locality />} />
         {/* Add more routes here if necessary */}
       </Routes>
     </Router>

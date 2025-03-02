@@ -74,9 +74,14 @@ const SecondaryComponent = () => {
               </a>
             </div>
             <div className="w-1/2 text-center">
-              <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
+            <a
+                href="/locality"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600 inline-block text-center"
+              >
                 Look for Locality
-              </button>
+              </a>
             </div>
           </div>
         </Modal>
