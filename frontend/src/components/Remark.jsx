@@ -2,7 +2,7 @@ import React from 'react';
 
 const Remark = () => {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className=" bg-white font-sans">
       {/* Main Section */}
       <section className="mt-7 text-center px-4 sm:px-12">
 
