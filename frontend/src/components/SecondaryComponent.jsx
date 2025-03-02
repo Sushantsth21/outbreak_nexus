@@ -87,20 +87,14 @@ const SecondaryComponent = () => {
       {/* Government Modal */}
       {modalType === "government" && (
         <Modal title="" onClose={closeModal}>
-          <div className="flex justify-between">
-            <div className="w-1/2 text-center">
-              <button className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600">
-                Look for Disease
-              </button>
-              <p className="mt-2 text-gray-700">Find information about diseases.</p>
-            </div>
-            <div className="w-1/2 text-center">
-              <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
-                Look for Locality
-              </button>
-              <p className="mt-2 text-gray-700">Find outbreaks in a specific area.</p>
-            </div>
-          </div>
+          <a
+                href="/Report"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600 inline-block text-center"
+              >
+                Generate Report
+              </a>
         </Modal>
       )}
 
