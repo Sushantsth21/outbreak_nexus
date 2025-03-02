@@ -26,7 +26,7 @@ const SecondaryComponent = () => {
   const closeModal = () => setModalType(null);
 
   return (
-    <div className=" p-4 text-center mt-6" style={{ backgroundColor: "white" }}>
+    <div className="relative p-4 text-center mt-6" style={{ backgroundColor: "white" }}>
       <header className="text-3xl text-center font-bold text-black-700 mb-6">
         Disease Outbreak Info
       </header>
@@ -35,8 +35,8 @@ const SecondaryComponent = () => {
       </h2>
 
       <p className="text-lg text-center text-gray-700 mb-6">
-          Outbreak Maps is your go-to platform for monitoring disease outbreaks. Whether you're tracking them over the last month or the past year, you’ll find all the details you need right here. The interactive maps provide an intuitive way to understand disease spread and empower users, from individuals to government officials, with the right information to act swiftly and responsibly.
-        </p>
+        Outbreak Maps is your go-to platform for monitoring disease outbreaks...
+      </p>
 
       <div className="space-y-1 mt-1">
         {/* Buttons in One Row with Spacing */}
@@ -44,7 +44,7 @@ const SecondaryComponent = () => {
           {/* Individual Login Button */}
           <button
             onClick={() => openModal("person")}
-            className="  inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out w-1/3 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
+            className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out w-1/3 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
           >
             Individual Login
           </button>
@@ -59,7 +59,7 @@ const SecondaryComponent = () => {
         </div>
       </div>
 
-      {/* Person Modal */}
+      {/* Modals */}
       {modalType === "person" && (
         <Modal title="" onClose={closeModal}>
           <div className="flex justify-between">
@@ -72,13 +72,11 @@ const SecondaryComponent = () => {
               >
                 Look for Disease
               </a>
-              <p className="mt-2 text-gray-700">Find information about diseases.</p>
             </div>
             <div className="w-1/2 text-center">
               <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
                 Look for Locality
               </button>
-              <p className="mt-2 text-gray-700">Find outbreaks in a specific area.</p>
             </div>
           </div>
         </Modal>
@@ -87,17 +85,16 @@ const SecondaryComponent = () => {
       {/* Government Modal */}
       {modalType === "government" && (
         <Modal title="" onClose={closeModal}>
-          <div className=" text-center">
-          <p className="mb-4">Click the button below to generate the report</p>
-              <a
-                href="/report"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600 inline-block text-center"
-              >
-                Generate Report
-              </a>
-            </div>
+          <div className="text-center">
+            <a
+              href="/report"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600 inline-block text-center"
+            >
+              Generate Report
+            </a>
+          </div>
         </Modal>
       )}
 

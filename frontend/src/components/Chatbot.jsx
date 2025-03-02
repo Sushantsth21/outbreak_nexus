@@ -86,8 +86,7 @@ const Chatbot = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed bottom-20 left-4 bg-white w-80 h-96 shadow-lg rounded-xl border border-gray-300 flex flex-col">
-      {/* ... (rest of your JSX remains the same) */}
+    <div className="fixed bottom-20 left-4 bg-white w-80 h-96 shadow-lg rounded-xl border border-gray-300 flex flex-col z-20">
       <div className="flex justify-between items-center bg-gray-800 text-white p-2 rounded-t-xl">
         <span className="text-lg font-semibold">Outbreak Chatbot</span>
         <button onClick={onClose} className="text-white hover:text-red-400">
@@ -95,7 +94,6 @@ const Chatbot = ({ onClose }) => {
         </button>
       </div>
 
-      {/* Chat Messages */}
       <div className="flex-grow overflow-y-auto p-2">
         {messages.map((msg, index) => (
           <div
@@ -121,7 +119,6 @@ const Chatbot = ({ onClose }) => {
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Chat Input */}
       <div className="flex p-2 border-t">
         <input
           type="text"

@@ -51,11 +51,11 @@ const HomeComponent = () => {
 
       {/* Sticky Chatbot Icon */}
       <div 
-        className="fixed bottom-10 left-4 flex items-center space-x-3 bg-green-600 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-700 transition-all z-50"
+        className="fixed bottom-5 left-4 flex items-center space-x-3 bg-green-600 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-700 transition-all z-50"
         onClick={() => setShowChatbot(true)} // Show chatbot on click
       >
         <MessageCircle size={28} />
-        <span className="hidden sm:inline-block font-semibold">Chat with us</span>
+        <span className=" hidden sm:inline-block font-semibold">Chat with us</span>
       </div>
 
       {/* Chatbot Popup */}
