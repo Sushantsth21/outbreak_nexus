@@ -10,6 +10,9 @@ const Chatbot = ({ onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const [isListening, setIsListening] = useState(false);
+  const recognition = useRef(null);
+  const stopTimeout = useRef(null);
 
   useEffect(() => {
     scrollToBottom();
@@ -33,7 +36,7 @@ const Chatbot = ({ onClose }) => {
 
     try {
       const genAI = new GoogleGenerativeAI(API_KEY);
-      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" }); // Using gemini-pro
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
       const result = await model.generateContent({
         contents: [
@@ -85,6 +88,56 @@ const Chatbot = ({ onClose }) => {
     }
   };
 
+  const startListening = () => {
+    if ("webkitSpeechRecognition" in window) {
+      const recognitionInstance = new window.webkitSpeechRecognition();
+      recognitionInstance.continuous = true; // Changed to true for continuous listening
+      recognitionInstance.lang = "en-US";
+      recognitionInstance.interimResults = true; // Changed to true for interim results
+      recognitionInstance.onstart = () => {
+        setIsListening(true);
+      };
+      recognitionInstance.onresult = (event) => {
+        let interimTranscript = "";
+        let finalTranscript = "";
+        for (let i = event.resultIndex; i < event.results.length; ++i) {
+          if (event.results[i].isFinal) {
+            finalTranscript += event.results[i][0].transcript;
+          } else {
+            interimTranscript += event.results[i][0].transcript;
+          }
+        }
+        setInput(finalTranscript || interimTranscript);
+        clearTimeout(stopTimeout.current);
+        stopTimeout.current = setTimeout(() => {
+          stopListening();
+          handleSendMessage(); // Send message after 3 seconds of silence
+        }, 3000); // 3 seconds timeout
+      };
+      recognitionInstance.onend = () => {
+        setIsListening(false);
+        clearTimeout(stopTimeout.current);
+      };
+      recognitionInstance.onerror = (event) => {
+        console.error("Speech recognition error:", event.error);
+        setIsListening(false);
+        clearTimeout(stopTimeout.current);
+      };
+      recognitionInstance.start();
+      recognition.current = recognitionInstance;
+    } else {
+      console.error("Speech recognition not supported in this browser.");
+    }
+  };
+
+  const stopListening = () => {
+    if (recognition.current) {
+      recognition.current.stop();
+      setIsListening(false);
+      clearTimeout(stopTimeout.current);
+    }
+  };
+
   return (
     <div className="fixed bottom-20 left-4 bg-white w-80 h-96 shadow-lg rounded-xl border border-gray-300 flex flex-col z-20">
       <div className="flex justify-between items-center bg-gray-800 text-white p-2 rounded-t-xl">
@@ -123,17 +176,23 @@ const Chatbot = ({ onClose }) => {
         <input
           type="text"
           placeholder="Type a message..."
-          className="flex-grow border p-2 rounded-l focus:outline-none"
+          className="flex-grow border p-1 rounded-l focus:outline-none"
           value={input}
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
         />
         <button
-          className="bg-green-600 text-white px-4 py-2 rounded-r hover:bg-green-700 disabled:bg-green-400"
+          className="bg-green-600 text-white p-2 rounded-r hover:bg-green-700 disabled:bg-green-400"
           onClick={handleSendMessage}
           disabled={isLoading || input.trim() === ""}
         >
           Send
+        </button>
+        <button
+          onClick={isListening ? stopListening : startListening}
+          className="bg-blue-500 text-white rounded ml-1"
+        >
+          {isListening ? "Stop" : "Speak"}
         </button>
       </div>
     </div>
