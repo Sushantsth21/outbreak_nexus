@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from disease_gemini_details import get_disease_info
+from disease_gemini_details import get_disease_info, get_name
 import json
 import os
 

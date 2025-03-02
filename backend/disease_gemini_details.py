@@ -56,4 +56,30 @@ def get_disease_info(disease_name):
         }
         return json.dumps(error_info)
     
-print(get_disease_info("lysteria"))
+def clean_string(text):
+    """
+    Converts text to lowercase and removes non-alphanumeric characters.
+    """
+    return re.sub(r'[^a-z0-9]', '', text.lower())
+
+def get_name(disease_name):
+    # Get the directory of the current script
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    # Construct absolute path to the JSON file
+    file_path = os.path.join(current_dir, "data", "diseases_description.json")
+    disease_data = DiseaseData(file_path)
+    all_disease = disease_data.get_all_diseases()
+    
+    # Clean the input disease name
+    cleaned_input = clean_string(disease_name)
+    
+    for disease in all_disease:
+        # Extract the name from the dictionary
+        name = disease.get("name", "")
+        cleaned_disease = clean_string(name)
+        if cleaned_input in cleaned_disease:
+            return name
+
+
+
+print(get_name("liptheria"))
