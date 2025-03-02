@@ -4,6 +4,7 @@ import Home from './pages/Home'; // Ensure Home page exists and is properly impo
 import Person from './pages/PersonPage'; // Create these components
 import Government from './pages/GovernmentPage'; // Create these components
 import PersonDisease from './pages/personDisease';
+import DiseaseDetails from './pages/DiseaseDetails';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/person" element={<Person />} />
         <Route path="/government" element={<Government />} />
         <Route path="/personDisease" element={<PersonDisease />} />
+        <Route path="/disease-details" element={<DiseaseDetails />} />
         {/* Add more routes here if necessary */}
       </Routes>
     </Router>
