@@ -15,6 +15,9 @@ logger = logging.getLogger(__name__)
 =======
 import requests
 from disease_gemini_details import get_disease_info, get_name
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 app = FastAPI(debug=True)
