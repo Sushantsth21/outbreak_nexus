@@ -9,7 +9,7 @@ const HomeComponent = () => {
   const [showChatbot, setShowChatbot] = useState(false); // Toggle chatbot
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#f8e5c8]">
+    <div className="bg-gradient-to-b from-white to-[#f8e5c8]">
       {/* Header */}
       <header className="flex justify-between items-center p-6 bg-[#f4ecdc] text-white shadow-xl rounded-b-3xl">
         <div className="flex items-center space-x-3 ml-2">
@@ -63,6 +63,11 @@ const HomeComponent = () => {
 
       {/* Secondary Component */}
       <SecondaryComponent />
+
+      {/* Footer */}
+      <footer className="py-6 bg-[#f4ecdc] text-center text-gray-700">
+        <p className="text-lg">&copy; 2025 Outbreak Nexus | All Rights Reserved</p>
+      </footer>
     </div>
   );
 };

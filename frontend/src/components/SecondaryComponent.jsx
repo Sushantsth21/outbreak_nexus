@@ -26,7 +26,7 @@ const SecondaryComponent = () => {
   const closeModal = () => setModalType(null);
 
   return (
-    <div className="p-6 mt-6" style={{ backgroundColor: "white" }}>
+    <div className=" mt-6" style={{ backgroundColor: "white" }}>
       <header className="text-3xl text-center font-bold text-black-700 mb-6">
         Disease Outbreak Info
       </header>
@@ -38,7 +38,7 @@ const SecondaryComponent = () => {
           Outbreak Maps is your go-to platform for monitoring disease outbreaks. Whether you're tracking them over the last month or the past year, you’ll find all the details you need right here. The interactive maps provide an intuitive way to understand disease spread and empower users, from individuals to government officials, with the right information to act swiftly and responsibly.
         </p>
 
-      <div className="space-y-6 mt-6">
+      <div className="space-y-1 mt-1">
         {/* Buttons in One Row with Spacing */}
         <div className="flex justify-center space-x-4">
           {/* Individual Login Button */}
