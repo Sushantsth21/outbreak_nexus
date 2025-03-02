@@ -18,7 +18,9 @@
     "mapbox-gl": "^3.10.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-markdown": "^10.0.0",
     "react-router-dom": "^6.30.0",
+    "remark-gfm": "^4.0.1",
     "scheduler": "^0.25.0"
   },
   "devDependencies": {

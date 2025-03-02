@@ -1,11 +1,11 @@
 import pandas as pd
-import pandas as pd
 from google import genai
 import os
 from dotenv import load_dotenv
 
-def get_dataframe(disease_name):          #user_input is what I want
-    file_path = f"backend/data/{disease_name}.csv"
+def get_dataframe(disease_name):  
+    disease_name = disease_name.lower().strip()       #user_input is what I want
+    file_path = f"data/{disease_name}.csv"
     df = pd.read_csv(file_path)
     df['Percent_Vaccinated_Measles'] = df['Percent_Vaccinated_Measles'].replace({'%': ''}, regex=True).astype(float) / 100
     
@@ -43,7 +43,7 @@ def generate_disease_report(state_name, df):
     Generate a disease control report for a specific state using Gemini API
     """
     # Get state data
-    state_data = df[df['Measles_Country'] == state_name]
+    state_data = df[df['Measles_Country'].str.lower() == state_name]
     
     if state_data.empty:
         return f"Error: State '{state_name}' not found in the dataset."
@@ -84,9 +84,15 @@ Format the report in a clear, professional manner suitable for health officials.
     except Exception as e:
         return f"Error generating report: {str(e)}"
     
-#print(get_dataframe("measles"))
+
 def process(user_inputted_disease, user_input_state):
+    user_inputted_disease = user_inputted_disease.lower().strip()
+    user_inputted_state = user_input_state.lower().strip()
     df = get_dataframe(user_inputted_disease)
-    state = user_input_state
+    state = user_inputted_state
     report = generate_disease_report(state, df)
     return report
+    
+# output = process("dengue" , "ohio")
+
+
