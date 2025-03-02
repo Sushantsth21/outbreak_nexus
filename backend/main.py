@@ -4,6 +4,7 @@ import uvicorn
 
 from gemini_official import generate_disease_report
 from disease_gemini_details import get_name, get_disease_info
+from create_report import read_data, estimate_measles_cases
 
 import json
 import os
@@ -89,31 +90,4 @@ if __name__ == "__main__":
     os.chdir(script_dir)
     
     uvicorn.run(app, host="0.0.0.0", port=8000)
-
-
-
-def read_data(file_path):
-    df = pd.read_csv(file_path)
-    df['Percent_Vaccinated_Measles'] = df['Percent_Vaccinated_Measles'].replace({'%': ''}, regex=True).astype(float) / 100
-
-    # Calculate indices
-    df['Healthcare_Access_Index'] = df['No_Hospitals'] / df['Population_2024']
-    max_healthcare_index = df['Healthcare_Access_Index'].max()
-    df['Normalized_Healthcare_Index'] = df['Healthcare_Access_Index'] / max_healthcare_index
-
-    df['GDP_Per_Capita_Index'] = df['Per_Capita($)'] / df['Per_Capita($)'].max()
-
-    # Estimated measles cases per state
-    df['Estimated_Measles_Cases'] = df.apply(lambda row: estimate_measles_cases(row), axis=1)
-
-    return df
-
-def estimate_measles_cases(row):
-    population = row['Population_2024']
-    vaccination_rate = row['Percent_Vaccinated_Measles']
-    gdp_per_capita_index = row['GDP_Per_Capita_Index']
-    healthcare_access_index = row['Normalized_Healthcare_Index']
-
-    estimated_cases = (population * (1 - vaccination_rate)) * (1 - (gdp_per_capita_index * healthcare_access_index))
-    return estimated_cases
 
