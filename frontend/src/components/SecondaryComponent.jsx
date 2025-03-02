@@ -18,6 +18,7 @@ const Modal = ({ title, onClose, children }) => (
 
 const SecondaryComponent = () => {
   const [modalType, setModalType] = useState(null);
+  const navigate = useNavigate();
 
   const openModal = (type) => setModalType(type);
   const closeModal = () => setModalType(null);
@@ -29,58 +30,52 @@ const SecondaryComponent = () => {
       </header>
 
       <div className="space-y-6 mt-8">
-        {/* Person Button */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <p className="mb-4 text-gray-700">
-            Explore disease outbreaks related to individuals and their impacts.
-          </p>
+        {/* Buttons in One Row with Spacing */}
+        <div className="flex justify-between space-x-4">
+          {/* Individual Login Button */}
           <button
             onClick={() => openModal("person")}
-            className="w-1/2 bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-blue-600"
+            className="w-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
           >
-            Person
+            Individual Login
           </button>
-        </div>
 
-
-        {/* Government Button */}
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <p className="mb-4 text-gray-700">
-            Discover how government policies can affect disease outbreaks and response.
-          </p>
+          {/* Government Button */}
           <button
             onClick={() => openModal("government")}
-            className="w-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-green-600"
+            className="w-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
           >
-            Are you a Government?
+            Are you a Government Official?
           </button>
         </div>
       </div>
 
-      /* Person Modal */
-        {modalType === "person" && (
-          <Modal title="" onClose={closeModal}>
-            <div className="flex justify-between">
-          <div className="w-1/2 text-center">
-          <button
-            onClick={() => window.open("/personDisease", "_blank", "noopener,noreferrer")}
-            className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600"
-          >
-            Look for Disease
-          </button>
-            <p className="mt-2 text-gray-700">Find information about diseases.</p>
-          </div>
-          <div className="w-1/2 text-center">
-            <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
-              Look for Locality
-            </button>
-            <p className="mt-2 text-gray-700">Find outbreaks in a specific area.</p>
-          </div>
+      {/* Person Modal */}
+      {modalType === "person" && (
+        <Modal title="" onClose={closeModal}>
+          <div className="flex justify-between">
+            <div className="w-1/2 text-center">
+              <a
+                href="/pages/personDisease"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600 inline-block text-center"
+              >
+                Look for Disease
+              </a>
+              <p className="mt-2 text-gray-700">Find information about diseases.</p>
             </div>
-          </Modal>
-        )}
+            <div className="w-1/2 text-center">
+              <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
+                Look for Locality
+              </button>
+              <p className="mt-2 text-gray-700">Find outbreaks in a specific area.</p>
+            </div>
+          </div>
+        </Modal>
+      )}
 
-        {/* Government Modal */}
+      {/* Government Modal */}
       {modalType === "government" && (
         <Modal title="" onClose={closeModal}>
           <div className="flex justify-between">
@@ -105,7 +100,7 @@ const SecondaryComponent = () => {
         <h3 className="text-xl font-semibold mb-4 text-gray-800">Remarks</h3>
         <p className="text-gray-700">
           Important information and additional context about our services and resources. We strive
-          to give you the best data insights.
+          to give you the very best data insights.
         </p>
       </section>
     </div>
