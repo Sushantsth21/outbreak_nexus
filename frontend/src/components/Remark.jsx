@@ -5,9 +5,6 @@ const Remark = () => {
     <div className="min-h-screen bg-white font-sans">
       {/* Main Section */}
       <section className="mt-7 text-center px-4 sm:px-12">
-        <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
-          Outbreak Maps is your go-to platform for monitoring disease outbreaks. Whether you're tracking them over the last month or the past year, you’ll find all the details you need right here. The interactive maps provide an intuitive way to understand disease spread and empower users, from individuals to government officials, with the right information to act swiftly and responsibly.
-        </p>
 
         <h3 className="text-2xl font-semibold text-gray-700 mb-4">What’s Inside?</h3>
 

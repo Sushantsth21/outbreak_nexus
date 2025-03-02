@@ -34,13 +34,17 @@ const SecondaryComponent = () => {
         Welcome to Outbreak Nexus
       </h2>
 
-      <div className="space-y-6 mt-8">
+      <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
+          Outbreak Maps is your go-to platform for monitoring disease outbreaks. Whether you're tracking them over the last month or the past year, you’ll find all the details you need right here. The interactive maps provide an intuitive way to understand disease spread and empower users, from individuals to government officials, with the right information to act swiftly and responsibly.
+        </p>
+
+      <div className="space-y-6 mt-6">
         {/* Buttons in One Row with Spacing */}
-        <div className="flex justify-between space-x-4">
+        <div className="flex justify-center space-x-4">
           {/* Individual Login Button */}
           <button
             onClick={() => openModal("person")}
-            className=" inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out w-1/3 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
+            className="  inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out w-1/3 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
           >
             Individual Login
           </button>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 
 const images = [
   {
@@ -65,8 +65,41 @@ const images = [
 ];
 
 export default function ImageDetailsPage() {
+  const navigate = useNavigate(); // Initialize useNavigate hook
+
+  // Function to navigate back to home
+  const handleBackClick = () => {
+    navigate("/"); // This will take the user back to the home page
+  };
+
   return (
     <div className="w-full space-y-6 p-6">
+      {/* Header */}
+      <header className="flex justify-between items-center p-6 bg-[#f4ecdc] text-white shadow-xl rounded-b-3xl">
+        <button onClick={handleBackClick} > 
+        <div className="flex items-center space-x-3 ml-2">
+          <img 
+            src="https://7pi46kr4xr.ufs.sh/f/GB776kQdNYxHzEXNj2BS3GHIoLaA7MFqv4V0pnNYUXChse91" 
+            alt="Outbreak Nexus Logo" 
+            className="h-12 w-12 object-cover rounded-full border-2 border-white"  
+          />
+          <div className="font-bold text-3xl sm:text-4xl tracking-wide text-black">Outbreak Nexus</div>
+        </div>
+        </button>
+        <div className="flex items-center space-x-1 mr-1">
+          <img 
+            src="https://7pi46kr4xr.ufs.sh/f/GB776kQdNYxHdgwWAQ2N59UaHOcIQj3Bdkp1s2fWgvYSVeJi" 
+            alt="World Bank logo" 
+            className="h-12 w-12 object-cover rounded-full border-2 border-white"  
+          />
+          <span className="relative group">
+            <Link to="/disease-details" className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-9 rounded-full transition-transform transform hover:bg-yellow-500 ">
+              Trending Data
+            </Link>
+          </span>
+        </div>
+      </header>
+
       {images.map((image, index) => (
         <div key={index} className="space-y-2">
           <img
