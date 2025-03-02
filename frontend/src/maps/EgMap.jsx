@@ -36,8 +36,15 @@ const MapboxExample = () => {
         type: 'fill',
         source: 'country-borders',
         paint: {
-          'fill-color': '#088',
-          'fill-opacity': 0.4,
+          'fill-color': [
+            'match',
+            ['get', 'name'],
+            'India', 'red',
+            'China', 'green',
+            'USA', 'blue',
+            'gray',
+          ]
+          
         },
       });
 
