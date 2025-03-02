@@ -38,6 +38,14 @@ def get_disease_by_name(disease_name: str):
         return data
     else:
         return json.loads(json_response) 
+
+@app.get("/disease-name/{disease_name}")
+def get_standardized_disease_name(disease_name: str):
+    name = get_name(disease_name)
+    return {"standardized_name": name}
+
+
+
     
 @app.post("/disease")
 def disease_info_post(disease_name: str):

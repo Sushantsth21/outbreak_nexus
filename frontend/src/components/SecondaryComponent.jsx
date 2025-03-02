@@ -26,7 +26,7 @@ const SecondaryComponent = () => {
   const closeModal = () => setModalType(null);
 
   return (
-    <div className=" mt-6" style={{ backgroundColor: "white" }}>
+    <div className=" p-4 text-center mt-6" style={{ backgroundColor: "white" }}>
       <header className="text-3xl text-center font-bold text-black-700 mb-6">
         Disease Outbreak Info
       </header>
@@ -34,7 +34,7 @@ const SecondaryComponent = () => {
         Welcome to Outbreak Nexus
       </h2>
 
-      <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
+      <p className="text-lg text-center text-gray-700 mb-6">
           Outbreak Maps is your go-to platform for monitoring disease outbreaks. Whether you're tracking them over the last month or the past year, you’ll find all the details you need right here. The interactive maps provide an intuitive way to understand disease spread and empower users, from individuals to government officials, with the right information to act swiftly and responsibly.
         </p>
 
@@ -65,7 +65,7 @@ const SecondaryComponent = () => {
           <div className="flex justify-between">
             <div className="w-1/2 text-center">
               <a
-                href="/pages/personDisease"
+                href="/personDisease"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600 inline-block text-center"
@@ -87,20 +87,16 @@ const SecondaryComponent = () => {
       {/* Government Modal */}
       {modalType === "government" && (
         <Modal title="" onClose={closeModal}>
-          <div className="flex justify-between">
-            <div className="w-1/2 text-center">
-              <button className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600">
-                Look for Disease
-              </button>
-              <p className="mt-2 text-gray-700">Find information about diseases.</p>
+          <div className="w-1/2 text-center">
+              <a
+                href="/report"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600 inline-block text-center"
+              >
+                Generate Report
+              </a>
             </div>
-            <div className="w-1/2 text-center">
-              <button className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600">
-                Look for Locality
-              </button>
-              <p className="mt-2 text-gray-700">Find outbreaks in a specific area.</p>
-            </div>
-          </div>
         </Modal>
       )}
 
