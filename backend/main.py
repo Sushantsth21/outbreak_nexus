@@ -1,11 +1,6 @@
 from fastapi import FastAPI,Query
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-
-from gemini_official import generate_disease_report
-from disease_gemini_details import get_name, get_disease_info
-from create_report import read_data, estimate_measles_cases
-
 import json
 import os
 import requests

@@ -49,12 +49,12 @@ function Report() {
             </div>
 
             <div className="mb-4">
-                <label className="block text-gray-700">Enter State/Country:</label>
+                <label className="block text-gray-700">Enter USA State:</label>
                 <input 
                     type="text" 
                     value={state} 
                     onChange={(e) => setState(e.target.value)} 
-                    placeholder="e.g., Nepal, USA, India"
+                    placeholder="e.g., Kentucky/Ohio/New York"
                     className="w-full p-2 border border-gray-300 rounded-md"
                 />
             </div>
