@@ -1,12 +1,15 @@
-// HomeComponent.js
-import React from 'react';
+import React, { useState } from 'react';
 import SecondaryComponent from './SecondaryComponent';
 import ImageSlider from './ImageSlider';
-import {Link} from "react-router-dom"
+import Chatbot from './Chatbot'; // Import chatbot component
+import { Link } from "react-router-dom";
+import { MessageCircle } from "lucide-react"; // Icon library for chat icon
 
 const HomeComponent = () => {
+  const [showChatbot, setShowChatbot] = useState(false); // Toggle chatbot
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#f8e5c8]"> 
+    <div className="min-h-screen bg-gradient-to-b from-white to-[#f8e5c8]">
       {/* Header */}
       <header className="flex justify-between items-center p-6 bg-[#f4ecdc] text-white shadow-xl rounded-b-3xl">
         <div className="flex items-center space-x-3 ml-2">
@@ -24,13 +27,13 @@ const HomeComponent = () => {
             className="h-12 w-12 object-cover rounded-full border-2 border-white"  
           />
           <span className="relative group">
-            <Link to="/disease-details" className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-9 rounded-full transition-transform transform hover:bg-yellow-500 ">
+            <Link to="/disease-details" className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-9 rounded-full transition-transform transform hover:bg-yellow-500">
               Trending Data
             </Link>
           </span>
         </div>
       </header>
-      
+
       {/* Section Title */}
       <section className="mt-7">
         <h2 className="text-3xl font-semibold text-center text-gray-700 mb-6">
@@ -40,21 +43,24 @@ const HomeComponent = () => {
           Explore global disease outbreaks, both near and far.
         </p>
       </section>
-      
+
       {/* Image Slider */}
       <div className="flex justify-center items-center w-11/12 mx-auto">
-      <ImageSlider />
+        <ImageSlider />
       </div>
-      
-      {/* About Us Button
-<div className="flex justify-center space-x-8 mt-6">
-  <Link to="/about-us">
-    <button className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out bg-black hover:bg-yellow-500 text-white py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
-      About Us
-    </button>
-  </Link>
-</div> */}
-      
+
+      {/* Sticky Chatbot Icon */}
+      <div 
+        className="fixed bottom-10 left-4 flex items-center space-x-3 bg-green-600 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-700 transition-all"
+        onClick={() => setShowChatbot(true)} // Show chatbot on click
+      >
+        <MessageCircle size={28} />
+        <span className="hidden sm:inline-block font-semibold">Chat with us</span>
+      </div>
+
+      {/* Chatbot Popup */}
+      {showChatbot && <Chatbot onClose={() => setShowChatbot(false)} />}
+
       {/* Secondary Component */}
       <SecondaryComponent />
     </div>
