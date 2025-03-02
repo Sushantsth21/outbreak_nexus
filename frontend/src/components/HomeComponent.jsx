@@ -9,7 +9,7 @@ const HomeComponent = () => {
   const [showChatbot, setShowChatbot] = useState(false); // Toggle chatbot
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-[#f8e5c8]">
+    <div className="bg-gradient-to-b from-white to-[#f8e5c8]">
       {/* Header */}
       <header className="flex justify-between items-center p-6 bg-[#f4ecdc] text-white shadow-xl rounded-b-3xl">
         <div className="flex items-center space-x-3 ml-2">
@@ -51,7 +51,7 @@ const HomeComponent = () => {
 
       {/* Sticky Chatbot Icon */}
       <div 
-        className="fixed bottom-10 right-4 flex items-center space-x-3 bg-green-600 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-700 transition-all"
+        className="fixed bottom-10 left-4 flex items-center space-x-3 bg-green-600 text-white p-3 rounded-full shadow-lg cursor-pointer hover:bg-green-700 transition-all"
         onClick={() => setShowChatbot(true)} // Show chatbot on click
       >
         <MessageCircle size={28} />
@@ -63,6 +63,11 @@ const HomeComponent = () => {
 
       {/* Secondary Component */}
       <SecondaryComponent />
+
+      {/* Footer */}
+      <footer className="py-6 bg-[#f4ecdc] text-center text-gray-700">
+        <p className="text-lg">&copy; 2025 Outbreak Nexus | All Rights Reserved</p>
+      </footer>
     </div>
   );
 };
