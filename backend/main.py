@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import json
 import os
+<<<<<<< Updated upstream
 import asyncio
 from disease_gemini_details import get_disease_info, get_name
 from load_data import process
@@ -11,6 +12,10 @@ import logging
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+=======
+import requests
+from disease_gemini_details import get_disease_info, get_name
+>>>>>>> Stashed changes
 
 app = FastAPI(debug=True)
 
