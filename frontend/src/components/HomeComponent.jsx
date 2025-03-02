@@ -2,6 +2,7 @@
 import React from 'react';
 import SecondaryComponent from './SecondaryComponent';
 import ImageSlider from './ImageSlider';
+import {Link} from "react-router-dom"
 
 const HomeComponent = () => {
   return (
@@ -16,16 +17,16 @@ const HomeComponent = () => {
           />
           <div className="font-bold text-3xl sm:text-4xl tracking-wide text-black">Outbreak Nexus</div>
         </div>
-        <div className="flex items-center space-x-6 mr-2">
+        <div className="flex items-center space-x-1 mr-1">
           <img 
             src="https://7pi46kr4xr.ufs.sh/f/GB776kQdNYxHdgwWAQ2N59UaHOcIQj3Bdkp1s2fWgvYSVeJi" 
             alt="World Bank logo" 
             className="h-12 w-12 object-cover rounded-full border-2 border-white"  
           />
           <span className="relative group">
-            <a href="#" className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out">
+            <Link to="/disease-details" className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-9 rounded-full transition-transform transform hover:bg-yellow-500 ">
               Trending Data
-            </a>
+            </Link>
           </span>
         </div>
       </header>
@@ -41,16 +42,18 @@ const HomeComponent = () => {
       </section>
       
       {/* Image Slider */}
-      <div className='width-1' style={{ width: "100%" }}>
-        <ImageSlider />
+      <div className="flex justify-center items-center w-11/12 mx-auto">
+      <ImageSlider />
       </div>
       
-      {/* About Us Button */}
-      <div className="flex justify-center space-x-8 mt-6">
-        <button className="bg-black hover:bg-yellow-500 text-white py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
-          About Us
-        </button>
-      </div>
+      {/* About Us Button
+<div className="flex justify-center space-x-8 mt-6">
+  <Link to="/about-us">
+    <button className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out bg-black hover:bg-yellow-500 text-white py-3 px-8 rounded-full shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out">
+      About Us
+    </button>
+  </Link>
+</div> */}
       
       {/* Secondary Component */}
       <SecondaryComponent />

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Remark from "./Remark";
+import AboutUs from "../pages/AboutUs";
 
 const Modal = ({ title, onClose, children }) => (
   <div className="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-10">
@@ -25,9 +27,12 @@ const SecondaryComponent = () => {
 
   return (
     <div className="p-6 mt-6" style={{ backgroundColor: "white" }}>
-      <header className="text-3xl text-center font-semibold text-blue-700 mb-6">
+      <header className="text-3xl text-center font-bold text-black-700 mb-6">
         Disease Outbreak Info
       </header>
+      <h2 className="text-2xl text-center font-semibold text-gray-800 mb-6">
+        Welcome to Outbreak Nexus
+      </h2>
 
       <div className="space-y-6 mt-8">
         {/* Buttons in One Row with Spacing */}
@@ -35,7 +40,7 @@ const SecondaryComponent = () => {
           {/* Individual Login Button */}
           <button
             onClick={() => openModal("person")}
-            className="w-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
+            className=" inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out w-1/3 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
           >
             Individual Login
           </button>
@@ -43,9 +48,9 @@ const SecondaryComponent = () => {
           {/* Government Button */}
           <button
             onClick={() => openModal("government")}
-            className="w-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
+            className="inline-block text-lg font-semibold text-white bg-gray-600 py-3 px-8 rounded-full transition-transform transform hover:scale-110 hover:bg-yellow-500 hover:shadow-lg group-hover:text-white duration-300 ease-in-out w-1/3 bg-black text-white px-6 py-3 rounded-lg shadow-md transition transform duration-300 hover:bg-yellow-500"
           >
-            Are you a Government Official?
+            Officer Login
           </button>
         </div>
       </div>
@@ -96,13 +101,14 @@ const SecondaryComponent = () => {
       )}
 
       {/* Remarks Section */}
-      <section className="mt-8 bg-gray-100 p-6 rounded-lg shadow-lg">
-        <h3 className="text-xl font-semibold mb-4 text-gray-800">Remarks</h3>
-        <p className="text-gray-700">
-          Important information and additional context about our services and resources. We strive
-          to give you the very best data insights.
-        </p>
-      </section>
+      <div className="remark">
+        <Remark />
+      </div>
+
+      {/* About Us Section */}
+      <div className="about-us">
+        <AboutUs />
+      </div>
     </div>
   );
 };
