@@ -3,44 +3,42 @@ from google import genai
 import os
 from dotenv import load_dotenv
 
-df = pd.read_csv("backend/data/measles.csv")
-print(df)
+def read_data(file_path):
+    df = pd.read_csv(file_path)
+    df['Percent_Vaccinated_Measles'] = df['Percent_Vaccinated_Measles'].replace({'%': ''}, regex=True).astype(float) / 100
+    # Calculate healthcare access index for all rows at once
+    df['Healthcare_Access_Index'] = df['No_Hospitals'] / df['Population_2024']
+    # Calculate GDP per capita index for all rows at once
+    df['GDP_Per_Capita_Index'] = df['Per_Capita($)'] / df['Per_Capita($)'].max()
+    # Apply the function to each row and create a new column 'Estimated Measles Cases'
+    df['Estimated_Measles_Cases'] = df.apply(estimate_measles_cases, axis=1)
+    return df
+
 '''
 Namugga, Barbara, et al. "The immediate treatment outcomes and cost estimate for managing clinical measles in children admitted at Mulago Hospital: a retrospective cohort study." PLOS Global Public Health 3.7 (2023): e0001523.
 '''
-df['Percent_Vaccinated_Measles'] = df['Percent_Vaccinated_Measles'].replace({'%': ''}, regex=True).astype(float) / 100
 
 # Define the function to estimate measles cases
 def estimate_measles_cases(row):
     # Extract values from the row
     population = row['Population_2024']
     vaccination_rate = row['Percent_Vaccinated_Measles']
-    gdp_per_capita = row['Per_Capita($)']
-    healthcare_access_index = row['No_Hospitals'] / row['Population_2024']
-    
-    # Calculate the GDP per Capita Index (normalized)
-    gdp_per_capita_index = gdp_per_capita / df['Per_Capita($)'].max()
-    
-    # Calculate the Healthcare Access Index (normalized)
-    healthcare_access_index_value = healthcare_access_index / df['No_Hospitals'].max()
+    gdp_per_capita_index = row['GDP_Per_Capita_Index']
+    healthcare_access_index = row['Healthcare_Access_Index'] / row['Healthcare_Access_Index'].max() if 'Healthcare_Access_Index' in row else 0
     
     # Estimate measles cases
-    estimated_cases = (population * (1 - vaccination_rate)) * (1 - (gdp_per_capita_index * healthcare_access_index_value))
+    estimated_cases = (population * (1 - vaccination_rate)) * (1 - (gdp_per_capita_index * healthcare_access_index))
     return estimated_cases
 
-# Apply the function to each row and create a new column 'Estimated Measles Cases'
-df['Estimated_Measles_Cases'] = df.apply(estimate_measles_cases, axis=1)
+def generate_disease_report(state_name, df):
+    # Load environment variables from .env file
+    load_dotenv()
 
-# Load environment variables from .env file
-load_dotenv()
+    # Read the API key from the environment
+    api_key = os.getenv("GEMINI_API_KEY")  # Ensure the key name matches the .env variable
 
-# Read the API key from the environment
-api_key = os.getenv("GEMINI_API_KEY")  # Ensure the key name matches the .env variable
-
-# Initialize the client with the key from .env
-client = genai.Client(api_key=api_key)
-
-def generate_disease_report(state_name):
+    # Initialize the client with the key from .env
+    client = genai.Client(api_key=api_key)
     """
     Generate a disease control report for a specific state using Gemini API
     """
@@ -88,6 +86,7 @@ Format the report in a clear, professional manner suitable for health officials.
 
 # Function to process one state at a time
 def process_state_report():
+    df = read_data('measles.csv')
     while True:
         print("\nAvailable states:")
         for state in df['Measles_Country'].unique():
@@ -99,15 +98,12 @@ def process_state_report():
             print("Exiting program.")
             break
         
-        report = generate_disease_report(state_input)
+        report = generate_disease_report(state_input, df)
         print("\n" + "="*80 + "\n")
         print(f"MEASLES CONTROL REPORT - {state_input.upper()}")
         print("="*80 + "\n")
         print(report)
         print("\n" + "="*80)
 
-# Run the interactive prompt handler
 if __name__ == "__main__":
-    print("Measles Disease Control Report Generator")
-    print("="*50)
     process_state_report()
