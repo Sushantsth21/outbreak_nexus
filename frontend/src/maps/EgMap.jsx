@@ -73,7 +73,7 @@ const MapboxExample = () => {
           "fill-color": [
             "interpolate",
             ["linear"],
-            ["get", `${fetchedDiseaseName}_dB`], // Use API response
+            ["get", `mpox_dB`], // Use API response
 
             // Decibel breakpoints followed by corresponding colors
             0,
