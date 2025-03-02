@@ -12,7 +12,7 @@
             "pathogen_type": "Virus"
         },
         {
-            "name": "Monkeypox (Mpox)",
+            "name": "Mpox",
             "introduction": "Mpox is a viral zoonotic disease caused by the monkeypox virus, characterized by a rash and flu-like symptoms. It is related to the virus that causes smallpox.",
             "symptoms": ["Fever", "Headache", "Muscle aches", "Back pain", "Swollen lymph nodes", "Chills", "Exhaustion", "Rash that progresses from macules to papules, vesicles, pustules, and scabs"],
             "causes": "Caused by the monkeypox virus, transmitted through close contact with an infected person or animal, or with material contaminated with the virus.",
