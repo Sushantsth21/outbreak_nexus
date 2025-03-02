@@ -1,80 +1,49 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState } from 'react';
 
 const DiseaseData = () => {
-  const [diseaseDetails, setDiseaseDetails] = useState(null);
-  const [error, setError] = useState(null);
-  const [diseaseName, setDiseaseName] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleFetchDetails = async () => {
-    if (!diseaseName.trim()) {
-      setError("Please enter a disease name");
-      return;
-    }
-
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      const response = await axios.get(
-        `http://localhost:8000/disease`,
-        { params: { name: diseaseName.trim() } }
-      );
-      setDiseaseDetails(response.data);
-    } catch (err) {
-      setError(err.response?.data?.detail || "Failed to fetch disease details");
-    } finally {
-      setIsLoading(false);
-    }
+  const [selectedDisease, setSelectedDisease] = useState('');
+  
+  const diseases = [
+    { id: 1, name: 'Measels', category: 'Viral' },
+    { id: 2, name: 'COVID-19', category: 'Bacterial' },
+    { id: 3, name: 'Cholera', category: 'Metabolic' },
+  ]
+  
+  const handleDiseaseChange = (e) => {
+    setSelectedDisease(e.target.value);
   };
-
+  
   return (
-    <div className="container">
-      <h1>Disease Information Finder</h1>
-      <div className="search-box">
-        <input
-          type="text"
-          value={diseaseName}
-          onChange={(e) => setDiseaseName(e.target.value)}
-          placeholder="Enter disease name (e.g., Diabetes)"
-          onKeyPress={(e) => e.key === "Enter" && handleFetchDetails()}
-        />
-        <button 
-          onClick={handleFetchDetails}
-          disabled={isLoading}
+    <div className="p-4">
+      <h2 className="text-xl font-bold mb-4">Disease Information Portal</h2>
+      
+      <div className="mb-4">
+        <label htmlFor="disease-select" className="block mb-2 font-medium">
+          Select a Disease:
+        </label>
+        <select
+          id="disease-select"
+          value={selectedDisease}
+          onChange={handleDiseaseChange}
+          className="w-full p-2 border rounded-md bg-white"
         >
-          {isLoading ? "Searching..." : "Search"}
-        </button>
+          <option value="">-- Select a disease --</option>
+          {diseases.map((disease) => (
+            <option key={disease.id} value={disease.name}>
+              {disease.name} ({disease.category})
+            </option>
+          ))}
+        </select>
       </div>
-
-      {error && <div className="error-message">⚠️ {error}</div>}
-
-      {diseaseDetails && (
-        <div className="result-card">
-          <h2>{diseaseDetails.name}</h2>
-          <div className="details-section">
-            <h3>Description</h3>
-            <p>{diseaseDetails.description}</p>
-            
-            {diseaseDetails.symptoms && (
-              <>
-                <h3>Symptoms</h3>
-                <ul>
-                  {diseaseDetails.symptoms.map((symptom, index) => (
-                    <li key={index}>{symptom}</li>
-                  ))}
-                </ul>
-              </>
-            )}
-
-            {diseaseDetails.treatment && (
-              <>
-                <h3>Treatment</h3>
-                <p>{diseaseDetails.treatment}</p>
-              </>
-            )}
-          </div>
+      
+      {selectedDisease && (
+        <div className="mt-4 p-4 border rounded-md bg-gray-50">
+          <h3 className="text-lg font-semibold mb-2">
+            {selectedDisease} Information
+          </h3>
+          <p className="text-gray-700">
+            Detailed information about {selectedDisease} would appear here.
+          </p>
         </div>
       )}
     </div>

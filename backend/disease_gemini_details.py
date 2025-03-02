@@ -3,6 +3,7 @@ import json
 import re
 from get_disease_details import DiseaseData
 from gemini_disease_unknown import handle_unknown_disease
+from google import genai
 
 def get_disease_info(disease_name):
     json_reply = ""
@@ -80,5 +81,5 @@ def get_disease_info(disease_name):
         '''
 
 #print(get_disease_info("monkeypox"))  #-> GIVES OUTPUT FROM OUR DATABASE
-print(get_disease_info("lysteria") ) #-> GIVES OUTPUT FROM GEMINI
+#print(get_disease_info("lysteria") ) #-> GIVES OUTPUT FROM GEMINI
 
