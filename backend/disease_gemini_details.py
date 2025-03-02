@@ -82,4 +82,4 @@ def get_name(disease_name):
 
 
 
-print(get_name("monke"))
+print(get_name("liptheria"))
