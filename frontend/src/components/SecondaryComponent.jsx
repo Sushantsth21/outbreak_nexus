@@ -65,7 +65,7 @@ const SecondaryComponent = () => {
           <div className="flex justify-between">
             <div className="w-1/2 text-center">
               <a
-                href="/pages/personDisease"
+                href="/personDisease"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600 inline-block text-center"
