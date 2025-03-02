@@ -10,7 +10,7 @@ const Modal = ({ title, onClose, children }) => (
       {children}
       <button
         onClick={onClose}
-        className="w-full bg-red-500 text-white px-6 py-2 rounded-lg transition duration-300 hover:bg-red-600 mt-4"
+        className="w-1/4 bg-red-500 text-white px-6 py-2 rounded-lg transition duration-300 hover:bg-red-600 mt-4"
       >
         Close
       </button>
@@ -87,12 +87,13 @@ const SecondaryComponent = () => {
       {/* Government Modal */}
       {modalType === "government" && (
         <Modal title="" onClose={closeModal}>
-          <div className="w-1/2 text-center">
+          <div className=" text-center">
+          <p className="mb-4">Click the button below to generate the report</p>
               <a
                 href="/report"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-blue-600 inline-block text-center"
+                className="bg-green-500 text-white px-6 py-3 rounded-lg shadow-md transition duration-300 hover:bg-green-600 inline-block text-center"
               >
                 Generate Report
               </a>
