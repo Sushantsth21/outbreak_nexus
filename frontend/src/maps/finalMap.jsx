@@ -1,14 +1,20 @@
-import React from "react";
-import MapboxExample from "./EgMap";
-import DiseaseData from "./diseaseData"; // Import the DiseaseData component
+import React, { useState } from 'react';
+import DiseaseData from './diseaseData';
+import MapboxExample from './EgMap';
 
-const FinalMap = () => {
+const ParentComponent = () => {
+  const [diseaseName, setDiseaseName] = useState('');
+
+  const handleDiseaseNameChange = (name) => {
+    setDiseaseName(name);
+  };
+
   return (
-    <div className="flex flex-col md:flex-row h-screen bg-gray-100">
-      <DiseaseData />
-      <MapboxExample />
+    <div>
+      <DiseaseData onDiseaseNameChange={handleDiseaseNameChange} />
+      <MapboxExample diseaseName={diseaseName} />
     </div>
   );
 };
 
-export default FinalMap;
+export default ParentComponent;

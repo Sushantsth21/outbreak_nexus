@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const DiseaseData = () => {
+const DiseaseData = ({ onDiseaseNameChange }) => {
   const [selectedDisease, setSelectedDisease] = useState('');
   const [diseaseInfo, setDiseaseInfo] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -24,6 +24,9 @@ const DiseaseData = () => {
     try {
       const response = await axios.get(`http://localhost:8000/disease/${selectedDisease}`);
       setDiseaseInfo(response.data);
+      
+      // Pass the disease name to the parent component
+      onDiseaseNameChange(response.data.name || selectedDisease);
       
       // Handle the hyphenated key name properly
       const isGemini = response.data['gemini_reply'] === true || 
