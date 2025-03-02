@@ -30,7 +30,7 @@ def estimate_measles_cases(row):
     estimated_cases = (population * (1 - vaccination_rate)) * (1 - (gdp_per_capita_index * healthcare_access_index))
     return estimated_cases
 
-def generate_disease_report(state_name, df):
+def generate_disease_report(state_name, df,disease_name):
     # Load environment variables from .env file
     load_dotenv()
 
@@ -57,15 +57,15 @@ def generate_disease_report(state_name, df):
     
     # Create the prompt for Gemini
     prompt = f'''
-Generate a comprehensive measles disease control report for {state_name} with the following data:
+Generate a comprehensive {disease_name} disease control report for {state_name} with the following data:
 - Population (2024): {population:,}
-- Measles Vaccination Rate: {vaccination_rate:.2f}%
+- {disease_name} Vaccination Rate: {vaccination_rate:.2f}%
 - Number of Hospitals: {hospitals}
 - GDP Per Capita: ${gdp_per_capita:,.2f}
-- Estimated Measles Cases: {estimated_cases:.0f}
+- Estimated {disease_name} Cases: {estimated_cases:.0f}
 
 The report should include:
-1. An executive summary of the measles situation in {state_name}
+1. An executive summary of the {disease_name} situation in {state_name}
 2. Risk assessment based on vaccination rates and healthcare infrastructure
 3. Recommended interventions prioritized by urgency and impact
 4. Resource allocation suggestions for disease control
@@ -85,12 +85,12 @@ Format the report in a clear, professional manner suitable for health officials.
         return f"Error generating report: {str(e)}"
     
 
-def process(user_inputted_disease, user_input_state):
+def process(user_inputted_disease, user_input_state,):
     user_inputted_disease = user_inputted_disease.lower().strip()
     user_inputted_state = user_input_state.lower().strip()
     df = get_dataframe(user_inputted_disease)
     state = user_inputted_state
-    report = generate_disease_report(state, df)
+    report = generate_disease_report(state, df,user_inputted_disease)
     return report
     
 # output = process("dengue" , "ohio")
